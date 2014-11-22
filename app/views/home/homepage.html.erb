@@ -1,1 +1,12 @@
-Hello World! How's it going? Finally a running website!
+Welcome to MessageBoard!
+<br>
+<% if user_signed_in? %>
+  Hey, <%= current_user.email %>, do you want to
+  <%= link_to("Sign Out", :destroy_user_session, method: :delete) %>?
+  <!-- or use this instead of link_to <a href="/users/sign_out">Sign out</a> -->
+
+
+<% else %>
+  <a href="/users/sign_up">Sign up</a>
+  <a href="/users/sign_in">Sign in</a>
+<% end %>
